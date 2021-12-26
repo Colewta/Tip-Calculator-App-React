@@ -39,8 +39,8 @@ function App(){
 
       <Container>
         <DivHalf>
-          <Bill />
-          <NumberOfPeople />
+          <Bill props={billCalcValues} />
+          <NumberOfPeople props={billCalcValues} />
           <Tip />
         </DivHalf>
         

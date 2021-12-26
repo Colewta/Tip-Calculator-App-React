@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import iconPerson from '../../images/icon-person.svg';
 import { billCalcValues } from '../../App';
 import { Container, Image, Input, Text } from '../../StylePatterns';
+import { finalVerification } from '../../helper';
 
 function NumberOfPeople(){
     const [people, setPeople] = useState(0);
@@ -21,7 +22,8 @@ function NumberOfPeople(){
                             event.target.value = 0;
                         } else{
                             setPeople(Number(event.target.value));
-                        }
+                        };
+                        finalVerification(billCalcValues);
                     }}
                     onBlur={() => {
                         billCalcValues.numberOfPeople = people;

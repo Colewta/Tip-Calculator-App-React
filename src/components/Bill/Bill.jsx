@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import dollar from '../../images/icon-dollar.svg';
 import { billCalcValues } from '../../App';
 import { Container, Image, Input, Text } from '../../StylePatterns';
+import { finalVerification } from '../../helper';
 
 function Bill(){
     const [bill, setBill] = useState(0);
@@ -22,7 +23,8 @@ function Bill(){
                             event.target.value = 0;
                         } else{
                             setBill(Number(event.target.value));
-                        }
+                        };
+                        finalVerification(billCalcValues);
                     }}
                     onBlur={() => {
                         billCalcValues.bill = bill;

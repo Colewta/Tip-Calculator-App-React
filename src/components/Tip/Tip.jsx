@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { billCalcValues } from '../../App';
-import { selectTip } from '../../objectHelper';
+import { finalVerification, selectTip, verifyObject } from '../../helper';
 import { Text } from '../../StylePatterns';
 import { darkGrayishCyan, lightGrayishCyan } from '../../variaveis';
 import TipFactory from './TipFactory';
@@ -39,7 +39,10 @@ function Tip(){
                 <CustomTip 
                     type="text" 
                     placeholder="Custom %" 
-                    onChange={event => billCalcValues.tip = (event.target.value / 100)}
+                    onChange={event => {
+                        billCalcValues.tip = (event.target.value / 100);
+                        finalVerification(billCalcValues);
+                    }}
                 />
             </Container>
         </React.Fragment>

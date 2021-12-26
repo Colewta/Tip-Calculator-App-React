@@ -1,5 +1,6 @@
 import React from 'react';
 import { billCalcValues } from '../../App';
+import { finalVerification } from '../../helper';
 import { SelectTip } from '../../StylePatterns';
 
 function TipFactory({props}){
@@ -13,6 +14,7 @@ function TipFactory({props}){
                             name={object.name}
                             onClick={event => {
                                 billCalcValues.tip = (event.target.name / 100);
+                                finalVerification(billCalcValues);
                             }}
                         >
                         {object.value}</SelectTip>

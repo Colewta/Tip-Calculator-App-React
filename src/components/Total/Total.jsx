@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../StylePatterns';
 import { veryDarkCyan } from '../../variaveis';
 import SubContainer from './SubContainer';
+import { finalValues } from './totalCalcs';
 
 const Container = styled.div`
     background-color: ${veryDarkCyan};
@@ -26,25 +27,7 @@ const Container = styled.div`
     }
 `;
 
-const ButtonSubmit = styled(Button)`
-    align-self: center;
-    align-items: center;
-    display: flex;
-    margin: 3rem auto 0;
-    padding: 0 .5rem;
-    width: auto;
-
-    @media(min-width: 768px){
-        width: 100%;
-    }
-`;
-
-export let finalValues = {
-    tipPerson: 0,
-    totalPerson: 0
-};
-
-function Total({props}){
+function Total(){
     const info = (titulo, subtitulo, valor) => {
         return{
             titulo: titulo,
@@ -53,24 +36,10 @@ function Total({props}){
         };
     };
 
-    const totalTip = (props) => {
-        return finalValues.tipPerson = ((props.bill * props.tip) / props.numberOfPeople).toFixed(2);
-    };
-
-    const totalCalc = (props) => {
-        return finalValues.totalPerson = ((props.bill + (props.bill * props.tip)) / props.numberOfPeople).toFixed(2);
-    };
-
-    const [change, setChange] = useState(0);
+    const [change, setChange] = useState(finalValues.tipPerson);
 
     return(
         <React.Fragment>
-            <ButtonSubmit onClick={() => {
-                    totalTip(props);
-                    totalCalc(props);
-                    setChange(change + 1);
-                }}>Submit Account</ButtonSubmit>
-
             <Container>
                 <SubContainer {...info('Tip Amount', '/ person', finalValues.tipPerson)} />
                 <SubContainer {...info('Total', '/ person', finalValues.totalPerson)} />
@@ -78,7 +47,6 @@ function Total({props}){
                 <Button onClick={() => window.location.reload()}>Reset</Button>
             </Container>
         </React.Fragment>
-        
     );
 };
 
