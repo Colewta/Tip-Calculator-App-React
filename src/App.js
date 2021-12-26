@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+import React from 'react';
+import styled from 'styled-components';
 import './App.css';
+import Bill from './components/Bill/Bill';
+import Header from './components/Header/Header';
+import { GlobalStyle } from './GlobalStyle';
+import Tip from './components/Tip/Tip';
+import NumberOfPeople from './components/NumberOfPeople/NumberOfPeople';
+import Total from './components/Total/Total';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const Container = styled.div`
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 90%;
+
+  @media(min-width: 768px){
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+const DivHalf = styled.div`
+  @media(min-width: 768px){
+    width: 45%;
+  }
+`;
+
+export let billCalcValues = {
+  bill: 0,
+  numberOfPeople: 0,
+  tip: 0
+};
+
+function App(){
+  return(
+    <React.Fragment>
+      <GlobalStyle />
+      <Header />
+
+      <Container>
+        <DivHalf>
+          <Bill />
+          <NumberOfPeople />
+          <Tip />
+        </DivHalf>
+        
+        <DivHalf>
+          <Total props={billCalcValues} />
+        </DivHalf>
+      </Container>
+    </React.Fragment>
   );
 }
 
