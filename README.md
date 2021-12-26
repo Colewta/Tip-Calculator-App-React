@@ -10,4 +10,4 @@ To run it you need to have npm installed in your local machine. If you don´t ha
 After npm is installed, download the files on https://github.com/Colewta/Tip-Calulator-React, open a terminal on your IDE
 or CMD at the project file and run "npm install".
 
-After npm downloads all dependecies he needs, run "npm start"
+After npm downloads all dependecies he needs, run the command "npm start"
