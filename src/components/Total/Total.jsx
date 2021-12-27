@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Button } from '../../StylePatterns';
 import { veryDarkCyan } from '../../variaveis';
@@ -15,15 +15,7 @@ const Container = styled.div`
     padding: 2rem 0 1rem;
 
     @media(min-width: 768px){
-        height: 35vh;
-    }
-
-    @media(min-width: 1024px){
-        height: 30vh;
-    }
-
-    @media(min-width: 1200px){
-        height: 45vh;
+        height: 90%;
     }
 `;
 
@@ -35,8 +27,6 @@ function Total(){
             valor: valor
         };
     };
-
-    const [change, setChange] = useState(finalValues.tipPerson);
 
     return(
         <React.Fragment>

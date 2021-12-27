@@ -6,10 +6,6 @@ import { Text } from '../../StylePatterns';
 import { darkGrayishCyan, lightGrayishCyan } from '../../variaveis';
 import TipFactory from './TipFactory';
 
-const CustomizedText = styled(Text)`
-    margin-top: 40px;
-`;
-
 const Container = styled.div`
     display: flex;
     flex-flow: row wrap;
@@ -21,7 +17,7 @@ const CustomTip = styled.input`
     border: none;
     border-radius: 7px;
     color: ${darkGrayishCyan};
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-top: 5%;
     padding: 0 1.3rem;
@@ -32,7 +28,7 @@ const CustomTip = styled.input`
 function Tip(){
     return(
         <React.Fragment>
-            <CustomizedText>Select Tip %</CustomizedText>
+            <Text>Select Tip %</Text>
 
             <Container>
                 <TipFactory props={selectTip} />

@@ -16,6 +16,7 @@ const Container = styled.div`
   @media(min-width: 768px){
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
   }
 `;
 
@@ -40,8 +41,8 @@ function App(){
       <Container>
         <DivHalf>
           <Bill props={billCalcValues} />
-          <NumberOfPeople props={billCalcValues} />
           <Tip />
+          <NumberOfPeople props={billCalcValues} />
         </DivHalf>
         
         <DivHalf>
