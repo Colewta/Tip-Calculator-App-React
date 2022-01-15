@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Button } from '../../StylePatterns';
 import { veryDarkCyan } from '../../variaveis';
 import SubContainer from './SubContainer';
-import { finalValues } from './totalCalcs';
 
 const Container = styled.div`
     background-color: ${veryDarkCyan};
@@ -19,20 +18,34 @@ const Container = styled.div`
     }
 `;
 
+export let tipPerson = 0;
+export let totalPerson = 0;
+
+export const totalCalc = (props) => {
+    tipPerson = ((props.bill * props.tip) / props.numberOfPeople).toFixed(2);
+    totalPerson = ((props.bill + (props.bill * props.tip)) / props.numberOfPeople).toFixed(2);
+};
+
+export let billCalcValues = {
+    bill: 0,
+    numberOfPeople: 0,
+    tip: 0
+};
+
 function Total(){
-    const info = (titulo, subtitulo, valor) => {
+    const info = (title, subtitle, value) => {
         return{
-            titulo: titulo,
-            subtitulo: subtitulo,
-            valor: valor
+            title: title,
+            subtitle: subtitle,
+            value: value
         };
     };
 
     return(
         <React.Fragment>
             <Container>
-                <SubContainer {...info('Tip Amount', '/ person', finalValues.tipPerson)} />
-                <SubContainer {...info('Total', '/ person', finalValues.totalPerson)} />
+                <SubContainer {...info('Tip Amount', '/ person', tipPerson)} />
+                <SubContainer {...info('Total', '/ person', totalPerson)} />
 
                 <Button onClick={() => window.location.reload()}>Reset</Button>
             </Container>

@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import { GlobalStyle } from './GlobalStyle';
 import Tip from './components/Tip/Tip';
 import NumberOfPeople from './components/NumberOfPeople/NumberOfPeople';
-import Total from './components/Total/Total';
+import Total, { billCalcValues } from './components/Total/Total';
 
 const Container = styled.div`
   border-radius: 20px;
@@ -26,12 +26,6 @@ const DivHalf = styled.div`
   }
 `;
 
-export let billCalcValues = {
-  bill: 0,
-  numberOfPeople: 0,
-  tip: 0
-};
-
 function App(){
   return(
     <React.Fragment>
@@ -46,7 +40,7 @@ function App(){
         </DivHalf>
         
         <DivHalf>
-          <Total props={billCalcValues} />
+          <Total />
         </DivHalf>
       </Container>
     </React.Fragment>

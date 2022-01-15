@@ -1,7 +1,7 @@
 import React from 'react';
-import { billCalcValues } from '../../App';
 import { finalVerification } from '../../helper';
 import { SelectTip } from '../../StylePatterns';
+import { billCalcValues } from '../Total/Total';
 
 function TipFactory({props}){
     return(

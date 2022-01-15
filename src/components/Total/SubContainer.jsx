@@ -41,11 +41,11 @@ function SubContainer(props){
     return(
         <Container>
             <div>
-                <Title>{props.titulo}</Title>
-                <SubTitle>{props.subtitulo}</SubTitle>
+                <Title>{props.title}</Title>
+                <SubTitle>{props.subtitle}</SubTitle>
             </div>
 
-            <Total>{`$${props.valor}`}</Total>
+            <Total>{`$${props.value}`}</Total>
         </Container>
     );
 };

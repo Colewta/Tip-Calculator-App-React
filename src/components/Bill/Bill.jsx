@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import dollar from '../../images/icon-dollar.svg';
-import { billCalcValues } from '../../App';
 import { Container, Image, Input, Text } from '../../StylePatterns';
 import { finalVerification } from '../../helper';
+import { billCalcValues } from '../Total/Total';
 
 function Bill(){
-    const [bill, setBill] = useState(0);
-
     return(
         <React.Fragment>
             <Text>Bill</Text>
@@ -22,12 +20,9 @@ function Bill(){
                         if(event.target.value < 0){
                             event.target.value = 0;
                         } else{
-                            setBill(Number(event.target.value));
+                            billCalcValues.bill = Number(event.target.value);
+                            finalVerification(billCalcValues);
                         };
-                        finalVerification(billCalcValues);
-                    }}
-                    onBlur={() => {
-                        billCalcValues.bill = bill;
                     }}
                 />
             </Container>

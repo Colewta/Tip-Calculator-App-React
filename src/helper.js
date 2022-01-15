@@ -1,5 +1,4 @@
-import { billCalcValues } from "./App";
-import { totalCalc } from "./components/Total/totalCalcs";
+import { billCalcValues, totalCalc } from "./components/Total/Total";
 
 export const selectTip = [
     {value: '5%', name: '5'},

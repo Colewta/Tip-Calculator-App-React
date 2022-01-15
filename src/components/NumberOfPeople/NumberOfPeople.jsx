@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import iconPerson from '../../images/icon-person.svg';
-import { billCalcValues } from '../../App';
 import { Container, Image, Input, Text } from '../../StylePatterns';
 import { finalVerification } from '../../helper';
+import { billCalcValues } from '../Total/Total';
 
 function NumberOfPeople(){
-    const [people, setPeople] = useState(0);
-
     return(
         <React.Fragment>
             <Text>Number of People</Text>
@@ -21,12 +19,9 @@ function NumberOfPeople(){
                         if(event.target.value < 0){
                             event.target.value = 0;
                         } else{
-                            setPeople(Number(event.target.value));
+                            billCalcValues.numberOfPeople = Number(event.target.value);
+                            finalVerification(billCalcValues);
                         };
-                        finalVerification(billCalcValues);
-                    }}
-                    onBlur={() => {
-                        billCalcValues.numberOfPeople = people;
                     }}
                 />
             </Container>

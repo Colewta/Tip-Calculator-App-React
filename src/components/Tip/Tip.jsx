@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { billCalcValues } from '../../App';
-import { finalVerification, selectTip, verifyObject } from '../../helper';
+import { finalVerification, selectTip } from '../../helper';
 import { Text } from '../../StylePatterns';
 import { darkGrayishCyan, lightGrayishCyan } from '../../variaveis';
+import { billCalcValues } from '../Total/Total';
 import TipFactory from './TipFactory';
 
 const Container = styled.div`
