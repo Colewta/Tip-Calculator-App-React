@@ -1,8 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../StylePatterns';
 import { veryDarkCyan } from '../../variaveis';
 import SubContainer from './SubContainer';
+
+const ButtonHidden = styled.button`
+    display: none;
+`;
 
 const Container = styled.div`
     background-color: ${veryDarkCyan};
@@ -18,21 +23,27 @@ const Container = styled.div`
     }
 `;
 
-export let tipPerson = 0;
-export let totalPerson = 0;
-
-export const totalCalc = (props) => {
-    tipPerson = ((props.bill * props.tip) / props.numberOfPeople).toFixed(2);
-    totalPerson = ((props.bill + (props.bill * props.tip)) / props.numberOfPeople).toFixed(2);
-};
-
 export let billCalcValues = {
     bill: 0,
     numberOfPeople: 0,
     tip: 0
 };
 
+let tipPerson = 0, totalPerson = 0;
+
+export const totalCalc = (props) => {
+    tipPerson = ((props.bill * props.tip) / props.numberOfPeople).toFixed(2);
+    totalPerson = ((props.bill + (props.bill * props.tip)) / props.numberOfPeople).toFixed(2);
+};
+
 function Total(){
+    let counter = 1;
+    const [change, setChange] = useState(0);
+    const onBtnClick = () => {
+        counter = change + 1;
+        setChange(counter);
+    };
+
     const info = (title, subtitle, value) => {
         return{
             title: title,
@@ -48,6 +59,7 @@ function Total(){
                 <SubContainer {...info('Total', '/ person', totalPerson)} />
 
                 <Button onClick={() => window.location.reload()}>Reset</Button>
+                <ButtonHidden className="buttonHidden" onClick={onBtnClick}>Hidden</ButtonHidden>
             </Container>
         </React.Fragment>
     );

@@ -7,6 +7,7 @@ import { GlobalStyle } from './GlobalStyle';
 import Tip from './components/Tip/Tip';
 import NumberOfPeople from './components/NumberOfPeople/NumberOfPeople';
 import Total, { billCalcValues } from './components/Total/Total';
+import reactDom from 'react-dom';
 
 const Container = styled.div`
   border-radius: 20px;

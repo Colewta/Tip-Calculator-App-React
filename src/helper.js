@@ -19,5 +19,6 @@ export function finalVerification(props){
         return;
     } else{
         totalCalc(props);
+        document.querySelector('.buttonHidden').click();
     };
 };
