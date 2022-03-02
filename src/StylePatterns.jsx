@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { darkGrayishCyan, lighterGrayishCyan, lightGrayishCyan, strongCyan, veryDarkCyan } from './variaveis';
 
-export const Text = styled.h3`
+export const Text = styled.h2`
     color: ${darkGrayishCyan};
     margin-top: 30px;
 `;
